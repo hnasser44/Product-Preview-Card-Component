@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --Dark-cyan: hsl(158, 36%, 37%);
+  --Cream: hsl(30, 38%, 92%);
+  --Very-dark-blue: hsl(212, 21%, 14%);
+  --Dark-grayish-blue: hsl(228, 12%, 48%);
+  --White: hsl(0, 0%, 100%);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+li {
+  font-family: inherit;
+}
+
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: var(--Cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 0.1px);
+  margin: 0 1.5rem;
+}
+
+h1 {
+  color: var(--Very-dark-blue);
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--Dark-grayish-blue);
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--Dark-grayish-blue);
+  line-height: 1.8;
+}
+
+.price {
+  color: var(--Dark-cyan);
+}
+
+h1,
+.price {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  color: var(--Very-dark-blue);
+}
+
+.card-container {
+  max-width: 600px;
+}
+
+.card-container h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+
+.card-container article:first-child img {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-container article:last-child {
+  background-color: var(--White);
+  padding: 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+  margin-top: -1rem;
+}
+
+.card-container p {
+  margin-bottom: 2rem;
+}
+
+.card-container ul {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.card-container ul li:first-child {
+  font-size: 2rem;
+  margin-right: 1.5rem;
+}
+
+.card-container ul li:last-child {
+  color: var(--Dark-grayish-blue);
+  text-decoration: line-through;
+}
+
+.card-container .btn img {
+  margin-right: 0.5rem;
+}
+
+
+.cart-button {
+  position: relative;
+  outline: 0;
+  background-color: var(--Dark-cyan);
+  color: #fff;
+  border: none;
+  height: 48px;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 0px;
+  overflow: hidden;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.cart-button:focus {
+  outline: none !important
+}
+
+.cart-button .fa-shopping-cart {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -20%;
+  font-size: 1.8em;
+  transform: translate(-50%, -50%)
+}
+
+.cart-button .fa-square {
+  position: absolute;
+  z-index: 1;
+  top: -20%;
+  left: 53%;
+  font-size: 0.8em;
+  transform: translate(-50%, -50%)
+}
+
+.cart-button span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%)
+}
+
+.cart-button span.added {
+  opacity: 0
+}
+
+.cart-button.clicked .fa-shopping-cart {
+  animation: cart 2s ease-in forwards
+}
+
+.cart-button.clicked .fa-square {
+  animation: box 2s ease-in forwards
+}
+
+.cart-button.clicked span.add-to-cart {
+  animation: addcart 2s ease-in forwards
+}
+
+.cart-button.clicked span.added {
+  animation: added 2s ease-in forwards
+}
+
+@keyframes cart {
+  0% {
+    left: -10%
+  }
+
+  40%,
+  60% {
+    left: 50%
+  }
+
+  100% {
+    left: 110%
+  }
+}
+
+@keyframes box {
+
+  0%,
+  40% {
+    top: -20%
+  }
+
+  60% {
+    top: 36%;
+    left: 53%
+  }
+
+  100% {
+    top: 40%;
+    left: 112%
+  }
+}
+
+@keyframes addcart {
+
+  0%,
+  30% {
+    opacity: 1
+  }
+
+  30%,
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes added {
+
+  0%,
+  80% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1
+  }
+}
+
+@media (min-width: 640px) {
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-container article:first-child img {
+    border-radius: 0.625rem 0 0 0.625rem;
+    width: 100%;
+  }
+
+  .card-container article:last-child {
+    border-radius: 0 0.625rem 0.625rem 0;
+    margin-top: 0;
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  picture img {
+    height: 100%;
+  }
+
+  .card-container p {
+    margin-bottom: 1rem;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .card-container h1 {
+    font-size: 1.5em;
+  }
+
+  .card-container p {
+    font-size: 0.8em;
+  }
+}
