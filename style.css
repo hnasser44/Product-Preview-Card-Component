@@ -80,6 +80,9 @@ h1,
   font-size: 2rem;
 }
 
+.card-container article:first-child>h2 {
+  display: none;
+}
 
 .card-container article:first-child img {
   border-radius: 1rem 1rem 0 0;
